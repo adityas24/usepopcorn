@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 const containerStyle = {
   display: "flex",
   alignItems: "center",
-  gap: "16px",
+  gap: "17px",
 };
 
 const starContainerStyle = {
@@ -13,13 +13,13 @@ const starContainerStyle = {
 };
 
 StarRating.propTypes = {
-  maxRating : PropTypes.number,
-  defaultRating : PropTypes.number,
-  color : PropTypes.string,
-  size : PropTypes.number,
-  messeges : PropTypes.array,
-  className : PropTypes.string,
-  onSetRating : PropTypes.func,
+  maxRating: PropTypes.number,
+  defaultRating: PropTypes.number,
+  color: PropTypes.string,
+  size: PropTypes.number,
+  messages: PropTypes.array,
+  className: PropTypes.string,
+  onSetRating: PropTypes.func,
 
 }
 
@@ -29,10 +29,10 @@ export default function StarRating({
   maxRating = 5,
   color = "#fcc419",
   size = 48,
-  className ='',
+  className = '',
   messeges = [],
   defaultRating = 0,
-  onSetRating = () =>{}
+  onSetRating = () => { }
 }) {
   const [rating, setRating] = useState(defaultRating);
   const [tempRating, setTempRating] = useState(defaultRating);
@@ -40,8 +40,8 @@ export default function StarRating({
   const textStyle = {
     lineHeight: "1",
     margin: "0",
-    color:color,  // when that kind of case become of assigning value we can directly write 'color' only 👍
-    fontSize :`${size/1.5}px`,
+    color: color,  // when that kind of case become of assigning value we can directly write 'color' only 👍
+    fontSize: `${size / 1.5}px`,
   };
 
   // if we want handle the setRating more explicitely then we can define a function
@@ -67,14 +67,14 @@ export default function StarRating({
         ))}
       </div>
 
-      <div style={textStyle}>{messeges.length === maxRating ? messeges[tempRating ? tempRating -1 : rating-1] : tempRating || rating || '' }</div>
+      <div style={textStyle}>{messeges.length === maxRating ? messeges[tempRating ? tempRating - 1 : rating - 1] : tempRating || rating || ''}</div>
     </div>
   );
 }
 
 
 
-function Star({ onRate, full, onHandleMouseIn, onHandleMouseOut,color,size }) {
+function Star({ onRate, full, onHandleMouseIn, onHandleMouseOut, color, size }) {
 
   const starStyle = {
     width: `${size}px`,
