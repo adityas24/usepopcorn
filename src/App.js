@@ -1,8 +1,8 @@
-import { useEffect, useRef, useState } from "react";
-import StarRating from "./StarRating";
-import { useMovies } from "./useMovies";
-import { useLocalStorage } from "./useLocalStorageState";
-import { useKey } from "./useKey";
+import { useEffect, useRef, useState } from 'react';
+import StarRating from './StarRating';
+import { useMovies } from './useMovies';
+import { useLocalStorage } from './useLocalStorageState';
+import { useKey } from './useKey';
 
 const average = (arr) =>
   arr.reduce((acc, cur, i, arr) => acc + cur / arr.length, 0);
@@ -22,7 +22,7 @@ function Logo() {
   return (
     <div className="logo">
       <span role="img">🍿</span>
-      <h1>usePopcorn</h1>
+      <h1>Hello world usePopcorn</h1>
     </div>
   );
 }
@@ -30,10 +30,10 @@ function Logo() {
 function Search({ query, setQuery }) {
   const inputEL = useRef(null);
 
-  useKey("Enter", function () {
+  useKey('Enter', function () {
     if (document.activeElement === inputEL.current) return;
     inputEL.current.focus();
-    setQuery("");
+    setQuery('');
   });
 
   // useEffect(function () {
@@ -64,22 +64,22 @@ function Search({ query, setQuery }) {
   );
 }
 
-const KEY = "4b4b0e0d";
+const KEY = '4b4b0e0d';
 
 export default function App() {
   // // const [query, setQuery] = useState("");
 
-  const [query, setQuery] = useState("inception");
+  const [query, setQuery] = useState('inception');
 
   // const [watched, setWatched] = useState([]);
 
   const [selectedId, setSelectedId] = useState(null);
-  const tempQuery = "interstellar";
+  const tempQuery = 'interstellar';
 
   const { movies, isLoading, error } = useMovies(query);
 
   //trying to make that custom hook almost similar to useState hook
-  const [watched, setWatched] = useLocalStorage([], "watched");
+  const [watched, setWatched] = useLocalStorage([], 'watched');
 
   // const [watched, setWatched] = useState(function () {
   //   const storedValue = localStorage.getItem("watched");
@@ -165,7 +165,7 @@ function Box({ children }) {
   return (
     <div className="box">
       <button className="btn-toggle" onClick={() => setIsOpen((open) => !open)}>
-        {isOpen ? "–" : "+"}
+        {isOpen ? '–' : '+'}
       </button>
       {isOpen && children}
     </div>
@@ -206,7 +206,7 @@ function MovieDetail({ selectedId, onCloseMovie, onAddWatched, watched }) {
   // movie corresponding to selectedID , this can be done by using a useEffect
   const [movie, setMovie] = useState({}); // using {} because the data which we get as movies from api is in object form.
   const [isLoading, setIsLoading] = useState(false);
-  const [userRating, setUserRating] = useState("");
+  const [userRating, setUserRating] = useState('');
 
   const countRef = useRef(0);
 
@@ -246,7 +246,7 @@ function MovieDetail({ selectedId, onCloseMovie, onAddWatched, watched }) {
       poster,
       userRating,
       imdbRating: Number(imdbRating),
-      runtime: Number(runtime.split(" ").at(0)),
+      runtime: Number(runtime.split(' ').at(0)),
       countRatingDecision: countRef.current,
     };
     onAddWatched(newWatchedMovie);
@@ -270,7 +270,7 @@ function MovieDetail({ selectedId, onCloseMovie, onAddWatched, watched }) {
   const isTop = imdbRating > 8;
   console.log(isTop);
 
-  useKey("escape", onCloseMovie);
+  useKey('escape', onCloseMovie);
 
   useEffect(
     function () {
@@ -297,7 +297,7 @@ function MovieDetail({ selectedId, onCloseMovie, onAddWatched, watched }) {
       document.title = `Movie | ${title}`;
 
       return function () {
-        document.title = "usePopCorn";
+        document.title = 'usePopCorn';
       };
     },
     [title]
@@ -333,7 +333,7 @@ function MovieDetail({ selectedId, onCloseMovie, onAddWatched, watched }) {
             <div className="rating">
               {!isWatched ? (
                 <>
-                  {" "}
+                  {' '}
                   <StarRating
                     maxRating={10}
                     size={24}
@@ -347,8 +347,8 @@ function MovieDetail({ selectedId, onCloseMovie, onAddWatched, watched }) {
                 </>
               ) : (
                 <p>
-                  {" "}
-                  You Already rated the movie {watchedUserRating}{" "}
+                  {' '}
+                  You Already rated the movie {watchedUserRating}{' '}
                   <span>🌟</span>
                 </p>
               )}
