@@ -5,11 +5,10 @@ import App from './App';
 import StarRating from './StarRating';
 // import ExampleComponent from './ExampleComponent';
 // import reportWebVitals from './reportWebVitals';
-function Test()
-{
-  const [movieStars, setMovieStars]= useState(0);
+function Test() {
+  const [movieStars, setMovieStars] = useState(0);
   return <div>
-    <StarRating color="blue" maxRating={7} onSetRating ={setMovieStars} />
+    <StarRating color="blue" maxRating={7} onSetRating={setMovieStars} />
     <p>The Movie has rated {movieStars} Stars </p>
   </div>
 }
@@ -21,9 +20,9 @@ root.render(
     <StarRating />
     <StarRating size={24} maxRating={10} className='text' defaultRating ={3}/>
     <Test/> */}
-    
+
     {/* <ExampleComponent/> */}
-    <App/>
+    <App />
     {/* we can also pass css class like that  */}
     {/* <StarRating maxRating={10} />
     <StarRating  /> */}
@@ -34,3 +33,5 @@ root.render(
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 // reportWebVitals();
+
+// added some thing by AK in index.js file 
